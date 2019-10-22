@@ -1,5 +1,5 @@
--Pick up at video 2, 24:58
+-Pick up at video 2, 39:17
 
--fix authorization error regarding current user id logic
+-Refactor form views to use Simple Form
 
 
