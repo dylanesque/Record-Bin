@@ -2,56 +2,53 @@
 <html>
   <head>
     <title>RecordBin</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %> <%= csp_meta_tag %> 
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light site-header">
+      <div class="navbar-header">
+        <h1>
+          <%= link_to "The Record Bin", root_path, class: "navbar-brand" %>
+        </h1>
+      </div>
 
-    <nav class="navbar navbar-default">
-      
-      <div class="container site-navbar">
-        
-        <div class="navbar-header">
-          <h1><%= link_to "The Record Bin", root_path, class: "navbar-brand" %></h1>
-        </div>
-
-        <ul class="nav navbar-nav">
-          <li><%= link_to  "Sign Up", new_user_registration_path %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to "Log In", new_user_session_path %></li>
-            <% end %>
-          
-        </ul>
-
+      <div class="container">
         <ul class="nav navbar-nav navbar-right">
-
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Genres <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <% Genre.all.each do |genre| %>
-                    <li class="<%= 'active' if params[:genre] == genre.name %>">
-                      <%= link_to genre.name, albums_path(genre: genre.name), class: "link" %>
-                    </li>
-                  <% end %>
-                </ul>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-expanded="false"
+              >Genres <span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu" role="menu">
+              <% Genre.all.each do |genre| %>
+              <li class="<%= 'active' if params[:genre] == genre.name %>">
+                <%= link_to genre.name, albums_path(genre: genre.name), class:
+                "link" %>
               </li>
-      
+              <% end %>
+            </ul>
+          </li>
+
           <% if user_signed_in? %>
-          <li><%= link_to  "Add Album", new_album_path %></li>
-          <% end %>
+          <li><%= link_to "Add Album", new_album_path %></li>
+          <li>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <% end %> <% if user_signed_in? %> <% end %>
         </ul>
-
-
       </div>
     </nav>
 
-      
     <%= yield %>
 
     <p class="notice"><%= notice %></p>
