@@ -1,4 +1,4 @@
--Pick up at video 2, 45:51
+-Pick up at video 4, 4:50
 
 -Original repo at: https://github.com/RyanHemrick/Book-Review
 

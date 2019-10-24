@@ -13,6 +13,18 @@
 
 </div>
 
+<div class="reviews">
+
+  
+    <h1>Reviews</h1>
+    <%= render @album.reviews %>
+
+    <div>
+      <%= link_to "Add Review", new_album_review_path(@album), class: "btn-custom" %>
+    </div>
+
+  </div>	
+
 
 
 <div class="links btn-group">
