@@ -1,0 +1,20 @@
+<h1><%= params[:genre] %></h1>
+
+
+<% if @albums.count == 0 %>
+  <h1>There are no albums currently in this genre!</h1>
+<% else %>	
+  <div class="row">
+    <% @albums.each do |album| %>
+      <div class="col-md-5">
+      <a href="/albums/<%= album.id %>">
+        <%= image_tag album.image.variant(resize_to_limit: [200, 200]) %>
+      </a>
+    </div>
+    <% end %>
+  </div>
+<% end %>    
+
+
+
+

@@ -1,0 +1,14 @@
+<h1>Edit Album</h1>
+
+<%= simple_form_for @album, :html => { :multipart => true } do |f| %>
+  <%= f.select :genre_id, @genres %>
+	<%= f.file_field :image %>
+	<%= f.input :title, label: "Record Title" %>
+	<%= f.input :description %>
+	<%= f.input :artist %>
+	<%= f.button :submit, :class => 'btn-custom2' %>
+<% end %>
+
+
+<%= link_to 'Show', @album %> |
+<%= link_to 'Back', albums_path %>
