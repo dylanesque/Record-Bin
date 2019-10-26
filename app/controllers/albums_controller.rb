@@ -1,10 +1,11 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :set_genres, only: [:new, :edit, :update]
 
   # GET /albums
   # GET /albums.json
   def index
-
     if params[:genre].blank?
 			@albums = Album.all.order("created_at DESC")
 		else
@@ -16,23 +17,22 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-    if @album.reviews.blank?
-			@average_review = 0
-		else
-			@average_review = @album.reviews.average(:rating).round(2)
-		end
+    @reviews =  @album.reviews.order("created_at DESC")
+      unless @reviews.present?
+        @avg_review = 0
+      else
+        @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
+    end
   end
 
   # GET /albums/new
   def new
     @album = current_user.albums.build
-    @genres = Genre.all.map { |g| [g.name, g.id] }
-    @album.genre_id = params[:genre_id]
+    # @album.genre_id = params[:genre_id]
   end
 
   # GET /albums/1/edit
   def edit
-    @genres = Genre.all.map { |g| [g.name, g.id] }
   end
 
   # POST /albums
@@ -56,7 +56,7 @@ class AlbumsController < ApplicationController
   # PATCH/PUT /albums/1.json
   def update
     @album.genre_id = params[:genre_id]
-    @genres = Genre.all.map { |g| [g.name, g.id] }
+    
 
     if @album.update(album_params)
       redirect_to album_path(@album)
@@ -81,6 +81,11 @@ class AlbumsController < ApplicationController
   def set_album
     @album = Album.find(params[:id])
   end
+
+  def set_genres
+    @genres = Genre.all.map { |g| [g.name, g.id] }
+  end
+
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def album_params

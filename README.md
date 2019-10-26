@@ -1,5 +1,9 @@
--Pick up at video 4, 4:50
+# Todos
 
--Original repo at: https://github.com/RyanHemrick/Book-Review
+-Fix styling
+
+-Remove rating functionality
+
+-Add "owned/not-owned" option to application
 
 

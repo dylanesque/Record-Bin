@@ -1,4 +1,4 @@
-<div><%= review.rating %>></div>
+<div class="individual-review-rating" data-score="<%= review.rating %>"></div>
 <p><%= review.comment %></p>
 
 <% if user_signed_in? %>
@@ -12,3 +12,5 @@
 
     <% end %>
     <% end %>
+
+   
