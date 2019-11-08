@@ -6,9 +6,9 @@
 <% else %>	
   <div class="row container">
     <% @albums.each do |album| %>
-      <div class="col-sm-3 ">
-      <a href="/albums/<%= album.id %>" class="main-page-album">
-        <%= image_tag album.image.variant(resize_to_limit: [200, 200]) %>
+      <div class="col-sm-3">
+      <a href="/albums/<%= album.id %>" >
+        <%= image_tag album.image.variant(resize_to_limit: [200, 200]), :class => "mb-3" %>
       </a>
     </div>
     <% end %>

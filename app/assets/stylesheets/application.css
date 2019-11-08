@@ -14,12 +14,6 @@
  *= require_self
  */
 
- .site-navbar {
-     display: flex;
-     justify-content: space-between;
 
- }
 
- .main-page-album {
-     margin: 2rem;
- }
+ 
