@@ -1,47 +1,33 @@
-<div class="container-fluid">
+<div class="container m-3">
   <div class="col">
-    <%= image_tag @album.image.variant(resize_to_limit: [350, 350]) %>
+    <%= image_tag @album.image.variant(resize_to_limit: [400, 400]) %>
   </div>
-
-	<div class="col">
-      <h2><%= @album.title %><span> by</span> <%= @album.artist %></h2>
-     
-		  <p><%= @album.description %></p>
-    </div>
-	</div>
-
-
+  <div class="col">
+    <h2 class="mt-2"><%= @album.title %><span> by</span> <%= @album.artist %></h2>
+    <p><%= @album.description %></p>
+  </div>
 </div>
 
-<div class="reviews">
+<div class="container m-3 ml-4">
+  <h3 class="ml-1">Reviews</h3>
+  <div class-="ml-4"><%= render @album.reviews %></div>
+</div>
 
-  
-    <h3>Reviews</h3>
-    <%= render @album.reviews %>
-
-    <div>
-      <%= link_to "Add Review", new_album_review_path(@album), class: "btn-custom" %>
-    </div>
-
-  </div>	
-
-
+<div class="container m-3">
+  <%= link_to "Add Review", new_album_review_path(@album), class: "btn-custom" %>
+</div>
 
 <div class="links btn-group">
+  <%= link_to "Back", root_path, class: "btn btn-custom" %>
 
-	<%= link_to "Back", root_path, class: "btn btn-custom" %>
-
-  <% if user_signed_in? %>
-
-  <% if @album.user_id == current_user.id %>
-  
-    <%= link_to 'Edit', edit_album_path(@album) %> 
-    <%= link_to 'Delete', album_path(@album), method: :delete, data: { confirm: "Are you sure you want to delete this?" } %>
-    
-  <% end %>  
-  
-  <% end %>
-
+  <div class="container">
+    <% if user_signed_in? %>
+    <% if @album.user_id == current_user.id %>
+      <%= link_to 'Edit ', edit_album_path(@album), class: "btn btn-custom" %> 
+      <%= link_to 'Delete', album_path(@album), method: :delete, data: { confirm: "Are you sure you want to delete this?" }, class: "btn btn-custom" %>
+    <% end %>  
+    <% end %>
+</div>
 </div>	
 
 

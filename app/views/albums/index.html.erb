@@ -9,6 +9,7 @@
       <div class="col-sm-3">
       <a href="/albums/<%= album.id %>" >
         <%= image_tag album.image.variant(resize_to_limit: [200, 200]), :class => "mb-3" %>
+        <p><%= album.title %> by <%= album.artist %></p>
       </a>
     </div>
     <% end %>
