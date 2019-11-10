@@ -1,6 +1,6 @@
 # Todos
 
--Fix columns and spacing on main page
+-Fix alignment of _form.html.erb file
 
 -Add "owned/not-owned" option to application
 
