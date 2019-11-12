@@ -1,14 +1,17 @@
 <h1>Edit Album</h1>
 
-<%= simple_form_for @album, :html => { :multipart => true } do |f| %>
-  <%= f.select :genre_id, @genres %>
-	<%= f.file_field :image %>
-	<%= f.input :title, label: "Record Title" %>
-	<%= f.input :description %>
-	<%= f.input :artist %>
-	<%= f.button :submit, :class => 'btn-custom2' %>
+<div class="container">
+<%= bootstrap_form_for(@album, layout: :horizontal ) do |f| %>
+  <%= f.select(:genre_id, options_for_select(@genres), :prompt => "Select a genre") %>
+  <%= f.file_field :image %>
+  <%= f.text_field :title, label: "Record Title" %>
+  <%= f.text_field :description %>
+  <%= f.text_field :artist %>
+  <%= f.submit %>
 <% end %>
+</div>
 
 
-<%= link_to 'Show', @album %> |
+
+<%= link_to 'Show', @album %> 
 <%= link_to 'Back', albums_path %>

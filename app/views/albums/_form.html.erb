@@ -1,10 +1,10 @@
 <div class="container">
-<%= simple_form_for @album, :html => { :multipart => true, :class: 'form-inline' } do |f| %>
-<%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a genre"), :class => 'm-3' %>
-	<%= f.file_field :image %>
-	<%= f.input :title, label: "Record Title" %>
-	<%= f.input :description %>
-	<%= f.input :artist %>
-	<%= f.button :submit, :class => 'btn-custom2' %>
+<%= bootstrap_form_for(@album, layout: :horizontal ) do |f| %>
+  <%= f.select(:genre_id, options_for_select(@genres), :prompt => "Select a genre") %>
+  <%= f.file_field :image %>
+  <%= f.text_field :title, label: "Record Title" %>
+  <%= f.text_field :description %>
+  <%= f.text_field :artist %>
+  <%= f.submit %>
 <% end %>
 </div>
