@@ -1,6 +1,9 @@
-<h1>Edit Album</h1>
 
 <div class="container">
+<h1 class="mt-2">Edit Album</h1>
+<hr class="mb-5">
+
+
 <%= bootstrap_form_for(@album, layout: :horizontal ) do |f| %>
   <%= f.select(:genre_id, options_for_select(@genres), :prompt => "Select a genre") %>
   <%= f.file_field :image %>
