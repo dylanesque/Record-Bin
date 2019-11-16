@@ -6,6 +6,8 @@
 
 -Fix alignment of _form.html.erb file
 
+-Fix spacing of form elements on Sign Up page
+
 
 
 -Add "owned/not-owned" option to application
