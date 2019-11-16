@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_genres, only: [:new, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit]
+  before_action :set_genres, only: [:new, :create, :edit, :update]
 
   # GET /albums
   # GET /albums.json
@@ -40,14 +40,13 @@ class AlbumsController < ApplicationController
   def create
     @album = current_user.albums.build(album_params)
     @album.genre_id = params[:genre_id]
+    
 
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
-        format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
   end
