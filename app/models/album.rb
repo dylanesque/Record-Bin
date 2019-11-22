@@ -1,4 +1,6 @@
 class Album < ApplicationRecord
+  validates :title, :description, :artist, presence: true
+
   belongs_to :user
   belongs_to :genre
 
