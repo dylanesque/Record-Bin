@@ -39,7 +39,6 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = current_user.albums.build(album_params)
-    @album.genre_id = params[:genre_id]
     
 
     respond_to do |format|
