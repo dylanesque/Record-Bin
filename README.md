@@ -10,6 +10,10 @@
 
 
 
--Add "owned/not-owned" option to application
+-Add "owned/not-owned" option to application:
+
+   -I can check a box when viewing records that adds it to a wishlist.
+   -I can view my wishlist by navigating to a page that displays it.
+
 
 
