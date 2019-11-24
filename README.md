@@ -14,6 +14,8 @@
 
    -I can check a box when viewing records that adds it to a wishlist.
    -I can view my wishlist by navigating to a page that displays it.
+   -A wishlist will belong to a user, and has many albums.
+   
 
 
 

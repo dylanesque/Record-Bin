@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'wishlist/index'
   devise_for :users
   resources :albums do
     resources :reviews
