@@ -38,6 +38,7 @@
           </li>
 
           <% if user_signed_in? %>
+          <li class="mr-5"><%= link_to "Wishlist", wishlist_index_path %></li>
           <li class="mr-5"><%= link_to "Add Album", new_album_path %></li>
           <li class="mr-5">
             <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
