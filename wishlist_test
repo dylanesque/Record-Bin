@@ -1,0 +1,9 @@
+User.create email: 'test@test.com', password: 'foobar'
+User.first.create_wishlist
+Genre.create name: 'Classic Rock'
+album = Album.create title: 'Abbey Road', description: 'Abbey Road', genre:
+Genre.first, artist: 'The Beatles', user: User.first
+User.first.wishlist.albums << Album.first
+
+puts "Wishlist albums:"
+puts User.first.wishlist.albums.map(&:title)
