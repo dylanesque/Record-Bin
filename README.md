@@ -8,14 +8,15 @@
 
 -Fix spacing of form elements on Sign Up page
 
+-Swap out remaining simple_form logic in app
+
 
 
 -Add "owned/not-owned" option to application:
 
    -I can check a box when viewing records that adds it to a wishlist.
    -I can view my wishlist by navigating to a page that displays it.
-   -A wishlist will belong to a user, and has many albums.
-   
+
 
 
 
